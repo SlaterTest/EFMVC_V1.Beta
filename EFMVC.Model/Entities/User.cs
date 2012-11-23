@@ -27,6 +27,9 @@ namespace EFMVC.Model
         public DateTime? LastLoginTime { get; set; }
         public bool Activated { get; set; }     
         public int RoleId { get; set; }
+        
+
+          
 
         public string Password
         {
