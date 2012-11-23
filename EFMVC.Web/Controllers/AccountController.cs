@@ -164,6 +164,7 @@ namespace EFMVC.Web.Controllers
             return Json(new { errors = GetErrorsFromModelState() });
         }
 
+
         [HttpPost]
         public ActionResult Register(UserFormModel form)
         {
