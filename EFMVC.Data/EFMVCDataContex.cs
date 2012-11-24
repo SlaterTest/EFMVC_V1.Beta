@@ -16,10 +16,16 @@ namespace EFMVC.Data
         {
             base.SaveChanges();
         }
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+       /* protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<IncludeMetadataConvention>();
         }
+        */
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<EFMVC.Data.EFMVCDataContex,  EFMVC.Data.Migrations.Configuration>());
+        }
+
        
     }
 }
