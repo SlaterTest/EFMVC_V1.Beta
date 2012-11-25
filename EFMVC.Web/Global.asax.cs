@@ -68,8 +68,12 @@ namespace EFMVC.Web
         {
             AreaRegistration.RegisterAllAreas();
 
+
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
+
+            //gegen Excessive headers EXPLORiT
+            MvcHandler.DisableMvcResponseHeader = true;
 
             BundleTable.Bundles.RegisterTemplateBundles();
             Bootstrapper.Run();
