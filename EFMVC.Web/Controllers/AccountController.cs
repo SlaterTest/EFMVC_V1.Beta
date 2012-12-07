@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
+
 using EFMVC.Web.ViewModels;
 using EFMVC.Domain.Commands;
 using EFMVC.Web.Core.Models;
@@ -12,6 +13,10 @@ using EFMVC.Web.Core.Extensions;
 using EFMVC.Web.Core.ActionFilters;
 using EFMVC.Web.Core.Authentication;
 using EFMVC.Model;
+
+using Kendo.Mvc.UI;
+using Kendo.Mvc.Extensions;
+
 namespace EFMVC.Web.Controllers
 {
 
@@ -26,7 +31,38 @@ namespace EFMVC.Web.Controllers
             this.commandBus = commandBus;
             this.userRepository = userRepository;
             this.formAuthentication = formAuthentication;
-        }            
+        }
+
+
+        public ActionResult Index()
+        {
+            return View();
+        } 
+
+
+        [CompressResponse]
+        [EFMVCAuthorize(Roles.Admin)]
+        public ActionResult UserList()
+        {
+            return View();
+        }
+
+
+        [CompressResponse]
+        [EFMVCAuthorize(Roles.Admin)]
+        /*  public ActionResult UserList_Read([DataSourceRequest] DataSourceRequest request)
+          {
+              var userlist = userRepository.GetAll();
+              return Json(userlist.ToDataSourceResult(request));
+          }
+        */
+        public ActionResult UserList_Read()
+        {
+            var userlist = userRepository.GetAll();
+            return View(userlist);
+        }
+
+
 
         //
         // GET: /Account/LogOff

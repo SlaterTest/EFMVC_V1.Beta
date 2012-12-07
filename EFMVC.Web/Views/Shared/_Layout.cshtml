@@ -7,6 +7,16 @@
         <link href="@System.Web.Optimization.BundleTable.Bundles.ResolveBundleUrl("~/Content/css")" rel="stylesheet" type="text/css" />
         <link href="@System.Web.Optimization.BundleTable.Bundles.ResolveBundleUrl("~/Content/themes/base/css")" rel="stylesheet" type="text/css" />
         <script src="@System.Web.Optimization.BundleTable.Bundles.ResolveBundleUrl("~/Scripts/js")"></script>
+
+            <link rel="stylesheet" href="@Url.Content("~/Content/web/kendo.common.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/web/kendo.rtl.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/web/kendo.default.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/shared/examples-offline.css")">
+    <script src="@Url.Content("~/Scripts/jquery.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo.web.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo.aspnetmvc.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/console.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/prettify.min.js")"></script>
         <meta name="viewport" content="width=device-width" />
     </head>
     <body>
@@ -26,6 +36,7 @@
                             {
                             <li>@Html.ActionLink("Category", "Index", "Category")</li>
                             <li>@Html.ActionLink("Expense", "Index", "Expense")</li>
+                            <li>@Html.ActionLink("Account", "Index", "Account")</li>
                             }
                         </ul>
                     </nav>

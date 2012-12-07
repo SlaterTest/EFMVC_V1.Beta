@@ -1,9 +1,29 @@
-﻿@model EFMVC.Web.Models.LoginModel
+﻿@model IEnumerable<EFMVC.Model.User>
+
 
 
 @{
     ViewBag.Title = "UserList";
 }
 
-<h2>UserList</h2>
 
+
+
+<h2>UserList</h2>
+@(Html.Kendo().Grid(Model)
+        .Name("UserListGrid")
+       .Columns(columns =>
+       {
+           columns.Bound(o => o.UserId);
+           columns.Bound(o => o.Email);
+           columns.Bound(o => o.FirstName);
+    })
+    .DataSource(dataSource => dataSource
+        .Ajax()
+            .Read(read => read.Action("UserList_Read", "Account"))
+     )
+    .Pageable()
+    .Filterable()
+    .Sortable()
+    .ColumnMenu()
+    )

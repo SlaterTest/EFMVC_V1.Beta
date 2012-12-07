@@ -22,6 +22,7 @@ namespace EFMVC.Web.Core.Extensions
             }
             return false;
         }
+
         public static EFMVCUser GetEFMVCUser(this IPrincipal principal)
         {
             if (principal.Identity is EFMVCUser)
