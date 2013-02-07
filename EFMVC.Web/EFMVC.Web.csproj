@@ -195,7 +195,6 @@
     <Content Include="Content\themes\Gritter\images\gritter-long.png" />
     <Content Include="Content\themes\Gritter\images\gritter.png" />
     <Content Include="Content\themes\Gritter\images\ie-spacer.gif" />
-    <Content Include="Content\themes\Gritter\images\trees.jpg" />
     <Content Include="Content\themes\Gritter\CSS\jquery.gritter.css" />
     <Content Include="Content\web\16x16\Chart.png" />
     <Content Include="Content\web\16x16\ComboBox.png" />
