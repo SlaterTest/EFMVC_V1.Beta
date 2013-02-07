@@ -33,10 +33,10 @@ namespace EFMVC.Web.Controllers
             this.formAuthentication = formAuthentication;
         }
 
-
         public ActionResult Index()
         {
-            return View();
+            var userlist = userRepository.GetAll();
+            return View(userlist);
         } 
 
 
@@ -50,18 +50,19 @@ namespace EFMVC.Web.Controllers
 
         [CompressResponse]
         [EFMVCAuthorize(Roles.Admin)]
-        /*  public ActionResult UserList_Read([DataSourceRequest] DataSourceRequest request)
+         public ActionResult UserList_Read([DataSourceRequest] DataSourceRequest request)
           {
-              var userlist = userRepository.GetAll();
+              var userlist = userRepository.GetAll() ;
               return Json(userlist.ToDataSourceResult(request));
           }
-        */
+
+        /*
         public ActionResult UserList_Read()
         {
             var userlist = userRepository.GetAll();
             return View(userlist);
         }
-
+        */
 
 
         //
@@ -159,7 +160,7 @@ namespace EFMVC.Web.Controllers
 
         [HttpPost]
         [CompressResponse]
-        [EFMVCAuthorize(Roles.Admin)]
+        //[EFMVCAuthorize(Roles.Admin)]
         public ActionResult JsonRegister(UserFormModel form)
         {
             if (ModelState.IsValid)
